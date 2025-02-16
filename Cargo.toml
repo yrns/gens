@@ -4,7 +4,5 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
-bevy_core = { version = "0.15.2", default-features = false }
-bevy_ecs = { version = "0.15.2", default-features = false }
-bevy_hierarchy = { version = "0.15.2", default-features = false }
+bevy_ecs = { version = "0.16.0-dev", path = "../clone/bevy/crates/bevy_ecs", default-features = false }
 disqualified = "1.0.0"

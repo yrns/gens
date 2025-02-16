@@ -1,6 +1,4 @@
 use bevy_ecs::prelude::*;
-use bevy_core::Name;
-use bevy_hierarchy::*;
 // use bevy_transform::components::Transform;
 use disqualified::ShortName;
 
@@ -104,12 +102,12 @@ mod tests {
         let displayed = format!("{}", debug_entity_hierarchy(root, &mut world));
 
         let expected = r#""root" (0v1): [Name, Children]
- ├"child_a" (1v1): [Name, Parent, Children]
- │├"child_c" (2v1): [Name, Parent]
- │└"child_d" (3v1): [Name, Parent, Children]
- │ └"child_f" (4v1): [Name, Parent]
- └"child_b" (5v1): [Name, Parent, Children]
-  └"child_e" (6v1): [Name, Parent]
+ ├"child_a" (1v1): [Name, ChildOf, Children]
+ │├"child_c" (2v1): [Name, ChildOf]
+ │└"child_d" (3v1): [Name, ChildOf, Children]
+ │ └"child_f" (4v1): [Name, ChildOf]
+ └"child_b" (5v1): [Name, ChildOf, Children]
+  └"child_e" (6v1): [Name, ChildOf]
 "#;
 
         assert_eq!(displayed, expected);
