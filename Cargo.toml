@@ -1,0 +1,10 @@
+[package]
+name = "gens"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+bevy_core = { version = "0.15.2", default-features = false }
+bevy_ecs = { version = "0.15.2", default-features = false }
+bevy_hierarchy = { version = "0.15.2", default-features = false }
+disqualified = "1.0.0"
