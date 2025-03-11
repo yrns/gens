@@ -32,7 +32,7 @@ impl std::fmt::Display for DebugEntityHierarchy<'_> {
 
             let mut components = self
                 .world
-                .inspect_entity(entity)
+                .inspect_entity(entity).unwrap()
                 // .into_iter()
                 .map(|c| ShortName(c.name()));
 
