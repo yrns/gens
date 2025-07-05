@@ -1,6 +1,5 @@
 use bevy_ecs::prelude::*;
 // use bevy_transform::components::Transform;
-use disqualified::ShortName;
 
 /// Displays an entity hierarchy with component names.
 #[must_use = "must be displayed"]
@@ -32,9 +31,10 @@ impl std::fmt::Display for DebugEntityHierarchy<'_> {
 
             let mut components = self
                 .world
-                .inspect_entity(entity).unwrap()
+                .inspect_entity(entity)
+                .unwrap()
                 // .into_iter()
-                .map(|c| ShortName(c.name()));
+                .map(|c| c.name());
 
             if let Some(c) = components.next() {
                 write!(f, ": [{c}")?;
