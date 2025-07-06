@@ -37,10 +37,10 @@ impl std::fmt::Display for DebugEntityHierarchy<'_> {
                 .map(|c| c.name());
 
             if let Some(c) = components.next() {
-                write!(f, ": [{c}")?;
+                write!(f, ": [{}", c.shortname())?;
 
                 for c in components {
-                    write!(f, ", {c}")?;
+                    write!(f, ", {}", c.shortname())?;
                 }
 
                 write!(f, "]")?;
@@ -101,13 +101,13 @@ mod tests {
 
         let displayed = format!("{}", debug_entity_hierarchy(root, &mut world));
 
-        let expected = r#""root" (0v1): [Name, Children]
- ├"child_a" (1v1): [Name, ChildOf, Children]
- │├"child_c" (2v1): [Name, ChildOf]
- │└"child_d" (3v1): [Name, ChildOf, Children]
- │ └"child_f" (4v1): [Name, ChildOf]
- └"child_b" (5v1): [Name, ChildOf, Children]
-  └"child_e" (6v1): [Name, ChildOf]
+        let expected = r#""root" (0v0): [Name, Children]
+ ├"child_a" (1v0): [Name, ChildOf, Children]
+ │├"child_c" (2v0): [Name, ChildOf]
+ │└"child_d" (3v0): [Name, ChildOf, Children]
+ │ └"child_f" (4v0): [Name, ChildOf]
+ └"child_b" (5v0): [Name, ChildOf, Children]
+  └"child_e" (6v0): [Name, ChildOf]
 "#;
 
         assert_eq!(displayed, expected);
